@@ -83,7 +83,7 @@ def signup():
         response = {"success": False, "message": "That username already exists."}
     else:
         hashed_password = bcrypt.hashpw(password, bcrypt.gensalt())
-        users.insert_one({"username": username, "password": hashed_password, "datetime": dateTime, 'gasexact': None,  'dieselexact': None, 'calories': None, 'meat': None, 'dairy': None, 'fruit_veggies': None, 'grain': None})
+        users.insert_one({"username": username, "password": hashed_password, "datetime": dateTime, 'gasexact': None,  'dieselexact': None, 'calories': None, 'meat': None, 'dairy': None, 'fruits_veggies': None, 'grain': None})
         response = {"success": True, "message": "User created successfully."}
 
     return jsonify(response)
@@ -200,11 +200,11 @@ def send_ovr():
         
         print(numbe > baseline)
         if numbe > baseline: 
-            perc += (.001*(numbe-baseline)) 
+            perc -= abs((.0008*(numbe-baseline)))
         elif numbe < baseline: 
-            perc -= (.001 *((numbe-baseline)))
+            perc += abs((.0008 *((numbe-baseline))))
         else: 
-            perc = baseline
+            perc = perc
 
 
         if perc < 0: 
@@ -270,19 +270,22 @@ def send_ind():
             
         print(numbe > baseline)
         if numbe > baseline: 
-            perc += (.001*(numbe-baseline)) 
+            perc -= abs((.0008*(numbe-baseline)))
         elif numbe < baseline: 
-            perc -= (.001 *((numbe-baseline)))
+            perc += abs((.0008 *((numbe-baseline))))
         else: 
-            perc = baseline
+            perc = perc
 
 
         if perc < 0: 
             perc = 0 
         if perc > 100: 
             perc = 100
+
+        print(perc)
+        print(numbe)
+        print(perc)
     ovr = {'barme': round(perc), 'emissme': numbe}
-    print(perc)
     return jsonify(ovr)
     
 
