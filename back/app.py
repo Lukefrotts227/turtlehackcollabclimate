@@ -12,10 +12,7 @@ import calculations
 # get mongodb url from the env file
 dotenv_path = os.path.join(os.path.dirname(__file__), 'bob.env')
 load_dotenv(dotenv_path)
-#load_dotenv("C:\\Users\\avafr\\OneDrive\\Desktop\\realturtlehack\\back\\bob.env")
-#config = dotenv_values("C:\\Users\\avafr\\OneDrive\\Desktop\\realturtlehack\\back\\bob.env")
-#load_dotenv('database.env')
-##uri = 'mongodb+srv://ljfrotton:plaster@clusterturtle.bvl7d1j.mongodb.net/?retryWrites=true&w=majority'
+
 mongodb_uri = os.getenv("MONGODB_URI")
 mongodb_name = os.getenv("DB_NAME")  # Retrieve the database name from the environment variables
 
