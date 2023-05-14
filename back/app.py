@@ -200,9 +200,9 @@ def send_ovr():
         
         print(numbe > baseline)
         if numbe > baseline: 
-            perc += (.01*(numbe-baseline)) 
+            perc += (.001*(numbe-baseline)) 
         elif numbe < baseline: 
-            perc -= (.01 *((numbe-baseline)))
+            perc -= (.001 *((numbe-baseline)))
         else: 
             perc = baseline
 
@@ -270,9 +270,9 @@ def send_ind():
             
         print(numbe > baseline)
         if numbe > baseline: 
-            perc += (.01*(numbe-baseline)) 
+            perc += (.001*(numbe-baseline)) 
         elif numbe < baseline: 
-            perc -= (.01 *((numbe-baseline)))
+            perc -= (.001 *((numbe-baseline)))
         else: 
             perc = baseline
 
