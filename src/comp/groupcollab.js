@@ -82,9 +82,9 @@ function Combo({ username }) {
   return (
     <div className="container-combo-1">
       <button className="btn-combo-1" onClick={handleClick}>
-        Render Again
+        update data
       </button>
-
+        <p className = "paragraph-combo-1"> The top bar shows how well the community is doing and the bottom shows how well you are doing </p>
       <ProgressBar bgcolor="#6a1b9a" completed={completed} />
       <ProgressBar bgcolor="#ff0000" completed={otherCompleted} />
     </div>
