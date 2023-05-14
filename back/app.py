@@ -290,34 +290,7 @@ def send_ind():
         
 
 
-'''
-@app.before_request
-def dec_calc_ovr_bef():
-    pass
 
-@app.before_request
-def dec_calc_ind_bef(): 
-    pass
-
-
-@app.after_request
-def dec_calc_ovr_bef():
-    pass
-
-@app.after_request
-def dec_calc_ind_bef(): 
-    pass
-
-'''
-
-# get the username of the current user 
-'''
-@app.route('/users/getuname', methods = ['GET', 'POST']) 
-def getUname():
-    username = request.data.decode('utf-8')
-    print(username)
-    return username
-'''
 
 if __name__ == '__main__':
     app.run(debug=True)
