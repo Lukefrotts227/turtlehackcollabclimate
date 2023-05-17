@@ -2,20 +2,10 @@ import React, { useState } from 'react';
 import Login from './login';
 import Signup from './signup';
 import Basic from './studentpage'
-import GasExact from './emissdata';
-import DieselExact from './diesel';
-import Food from './food';
-import Combo from './groupcollab';
 
 function AuthContainer() {
     const [showLogin, setShowLogin] = useState(true);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-    const [username, setUsername] = useState('');
-
-    function setUsernameCallback(username) {
-        setUsername(username);
-      }
   
     function handleLoginClick() {
       setShowLogin(true);
@@ -24,31 +14,20 @@ function AuthContainer() {
     function handleSignupClick() {
       setShowLogin(false);
     }
-    if (isAuthenticated) { 
-        return( <div className = "container-auth-1">
-                <Basic />
-                {username && <GasExact username={username} />}
-                {username && <DieselExact username={username} />}
-                {username && <Food username={username} />}
-                {username && <Combo username={username} />}
-        </div>
-        );
+    if (isAuthenticated) {
+        return <Basic />;
       }
     
       return (
-        <div className = "container-auth-2" >
+        <div>
           {showLogin ? (
             <Login
               handleSignupClick={handleSignupClick}
-              setIsAuthenticated={setIsAuthenticated}  
-              setUsernameCallback={setUsernameCallback}
+              setIsAuthenticated={setIsAuthenticated}
             />
-            
           ) : (
             <Signup handleLoginClick={handleLoginClick} />
-            
           )}
-          
         </div>
       );
     }
