@@ -157,8 +157,8 @@ def foodcalc():
 @app.route('/data')
 def send_ovr():
     users = db.users
-    avgG = 18
-    avgD = 14.75875
+    avgG = 9.33
+    avgD = 7.97835
     avgF = 4.3 * 3112
     baseline = calculations.gallOfDies(avgD) + calculations.gallOfGas(avgG) + avgF  # 323591.67499999993 starts at 33 percent
     ovr = {}
