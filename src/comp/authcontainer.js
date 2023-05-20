@@ -43,7 +43,7 @@ function AuthContainer() {
         return( <div className = "container-auth-1">
                 <Basic />
                 {username && <GasExact username={username} />}
-                {username && <DieselExact username={username} />}
+                
                 {username && <Food username={username} />}
                 {username && <Combo username={username} />}
         </div>
@@ -54,7 +54,7 @@ function AuthContainer() {
         else if(doneWithCheck && !isGas){
           return( <div className = "container-auth-1">
         <Basic />
-        {username && <GasExact username={username} />}
+        
         {username && <DieselExact username={username} />}
         {username && <Food username={username} />}
         {username && <Combo username={username} />}
