@@ -1,11 +1,12 @@
 import React, {useState} from 'react'; 
 import './styles.css'; 
+import GasExact from './emissdata'
 
 function Basic(){ 
     return (
-        <div>
-        <h1>Welcome to My Basic React Page</h1>
-        <p>This is a basic React page example</p>
+        <div className = "container-intro">
+        <h1 className = "header-intro-1">Welcome to the community carbon footprint</h1>
+        <p className = "paragraph-intro-1">combating climate change with collaboration</p>
         </div>
 
     )
