@@ -17,6 +17,18 @@
 
   }
 
+  .container-gasordiesel h2{
+    margin-top: 55px;
+  }
+
+  .container-gasordiesel {
+    margin-top: 22px;
+  }
+  
+  .container-gasordiesel button {
+    margin-right: 10px;
+  }
+
 
 .btn-combo-1{
     padding: 10px 20px;
