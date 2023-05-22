@@ -7,6 +7,7 @@ import bcrypt
 import datetime
 
 import calculations
+import  textdochandle
 
 
 # get mongodb url from the env file
@@ -288,6 +289,15 @@ def send_ind():
     ovr = {'barme': round(perc), 'emissme': numbe}
     return jsonify(ovr)
     
+
+@app.route('/users/advice', methods = ['GET', 'POST'])
+def give_advice_basic():
+    suggest = textdochandle.suggs('advice.txt')
+
+    sugg = {'itis' : suggest.get_phrase()}
+    return jsonify(sugg)
+
+
 
         
         
