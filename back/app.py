@@ -7,6 +7,7 @@ import bcrypt
 import datetime
 
 import calculations
+import  textdochandle
 
 
 # get mongodb url from the env file
@@ -157,8 +158,8 @@ def foodcalc():
 @app.route('/data')
 def send_ovr():
     users = db.users
-    avgG = 18
-    avgD = 14.75875
+    avgG = 9.33
+    avgD = 7.97835
     avgF = 4.3 * 3112
     baseline = calculations.gallOfDies(avgD) + calculations.gallOfGas(avgG) + avgF  # 323591.67499999993 starts at 33 percent
     ovr = {}
@@ -288,6 +289,15 @@ def send_ind():
     ovr = {'barme': round(perc), 'emissme': numbe}
     return jsonify(ovr)
     
+
+@app.route('/users/advice', methods = ['GET', 'POST'])
+def give_advice_basic():
+    suggest = textdochandle.suggs('advice.txt')
+
+    sugg = {'itis' : suggest.get_phrase()}
+    return jsonify(sugg)
+
+
 
         
         
