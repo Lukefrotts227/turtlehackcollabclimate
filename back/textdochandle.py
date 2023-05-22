@@ -16,6 +16,7 @@ class suggs:
         return self.phrases 
     def get_phrase(self):
         return choice(self.phrases)
+
     
 if __name__ == '__main__':
     sugg = suggs('advice.txt')
