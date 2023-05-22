@@ -7,6 +7,7 @@ import DieselExact from './diesel';
 import Food from './food';
 import Combo from './groupcollab';
 import GasOrDiesel from './gasordiesel';
+import SuggestBase from './suggestionbase';
 
 function AuthContainer() {
     const [showLogin, setShowLogin] = useState(true);
@@ -42,10 +43,12 @@ function AuthContainer() {
       if (isGas){
         return( <div className = "container-auth-1">
                 <Basic />
+                
                 {username && <GasExact username={username} />}
                 
                 {username && <Food username={username} />}
                 {username && <Combo username={username} />}
+                {<SuggestBase/>}
         </div>
         );
 
@@ -58,6 +61,7 @@ function AuthContainer() {
         {username && <DieselExact username={username} />}
         {username && <Food username={username} />}
         {username && <Combo username={username} />}
+        {<SuggestBase/>}
 </div>
 );
         }
