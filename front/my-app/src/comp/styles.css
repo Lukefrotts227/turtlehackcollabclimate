@@ -4,7 +4,15 @@
   }
 
   .suggest-container {
-    text-align: bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #007bff;
+  }
+  .suggest-container:hover{
+    background-color: #fff; 
   }
   
   .suggest-container h2 {
