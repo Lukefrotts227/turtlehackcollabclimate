@@ -22,7 +22,7 @@ function SuggestBase() {
 
   return (
     <div className="suggest-container">
-    <h2> a helpful message</h2>
+    <h2> A helpful message</h2>
       {data && (
         <p>{data['itis']} </p>
 
