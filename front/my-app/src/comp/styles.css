@@ -36,8 +36,11 @@
   }
   button:hover{
     background-color: #0056b3;
+    font-weight : bold;
 
   }
+
+
 
   .container-gasordiesel h2{
     margin-top: 55px;
@@ -385,6 +388,7 @@
   
   .btn-log-2:hover {
     color: #0056b3;
+    background-color: #fff; 
   }
 
 
