@@ -8,6 +8,8 @@ import Food from './food';
 import Combo from './groupcollab';
 import GasOrDiesel from './gasordiesel';
 import SuggestBase from './suggestionbase';
+import Welcome from './welcomeinsignup';
+
 
 function AuthContainer() {
     const [showLogin, setShowLogin] = useState(true);
@@ -69,7 +71,9 @@ function AuthContainer() {
     
       return (
         <div className = "container-auth-2" >
+          <Welcome/>
           {showLogin ? (
+      
             <Login
               handleSignupClick={handleSignupClick}
               setIsAuthenticated={setIsAuthenticated}  

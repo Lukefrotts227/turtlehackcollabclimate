@@ -465,3 +465,29 @@
   .btn-sign-2:hover {
     background-color: #0056b3;
   }
+
+
+
+  /* welcome page */
+  
+  .container-welcome{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 4px;
+  }
+
+  .header1-welcome{
+    font-size: 55px;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+  }
+
+
+
