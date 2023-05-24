@@ -379,16 +379,15 @@
   
   .btn-log-2 {
     padding: 8px 16px;
-    background-color: transparent;
+    
     border: none;
-    color: #007bff;
+    color: #fff; 
     cursor: pointer;
     transition: color 0.3s ease;
   }
   
   .btn-log-2:hover {
-    color: #0056b3;
-    background-color: #fff; 
+    background-color: #0056b3;
   }
 
 
