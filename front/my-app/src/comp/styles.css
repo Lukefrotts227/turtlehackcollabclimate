@@ -9,10 +9,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #007bff;
+    
   }
   .suggest-container:hover{
     background-color: #fff; 
+    text-transform: capitalize;   
   }
   
   .suggest-container h2 {
