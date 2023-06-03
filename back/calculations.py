@@ -1,4 +1,4 @@
-# data and formulas from:
+# data, formulas and sources from:
 '''
 https://www.epa.gov/energy/greenhouse-gases-equivalencies-calculator-calculations-and-references
 https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwidzO6fsPP-AhWKK1kFHdZVBOsQFnoECDEQAQ&url=https%3A%2F%2Fsurroundedbymath.com%2Finteractive-math%2Festimate-the-greenhouse-gas-emissions-associated-with-your-diet%2F&usg=AOvVaw0XDr8X9p_v1IA30gQkhxpt
@@ -19,6 +19,13 @@ https://kohalacenter.org/HISGN/pdf/carbofoodprint.pdf
 https://www.bensnaturalhealth.com/blog/general-health/average-american-diet-and-exercise/
 
 https://dev.to/ramonak/react-how-to-create-a-custom-progress-bar-component-in-5-minutes-2lcl
+
+https://blog.tensorflow.org/2019/05/transformer-chatbot-tutorial-with-tensorflow-2.html
+
+https://www.tensorflow.org/text/tutorials/classify_text_with_bert
+
+https://keras.io/examples/generative/text_generation_gpt/
+
 
 '''
 
@@ -55,6 +62,9 @@ def food(calories, meats, dairy, fruits_veggies, grains):
 
     # final calc
     return 7*((me*m) + (da*d) + (fr*f) + (gr*g))  # multiply by 7 to include whole week
+
+
+
 
 if __name__ == '__main__':
     x = internal_food_calc(20/1000, 16/1000, 5/1000, 4/1000, 2.5/1000, 10/1000, 1.2/1000, .9/1000, .7/1000, 2.8/1000)

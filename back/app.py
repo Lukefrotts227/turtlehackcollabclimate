@@ -1,3 +1,4 @@
+
 from dotenv import load_dotenv, dotenv_values
 import os
 from flask import Flask, request, jsonify
@@ -7,15 +8,13 @@ import bcrypt
 import datetime
 
 import calculations
+import textdochandle
 
 
 # get mongodb url from the env file
 dotenv_path = os.path.join(os.path.dirname(__file__), 'bob.env')
 load_dotenv(dotenv_path)
-#load_dotenv("C:\\Users\\avafr\\OneDrive\\Desktop\\realturtlehack\\back\\bob.env")
-#config = dotenv_values("C:\\Users\\avafr\\OneDrive\\Desktop\\realturtlehack\\back\\bob.env")
-#load_dotenv('database.env')
-##uri = 'mongodb+srv://ljfrotton:plaster@clusterturtle.bvl7d1j.mongodb.net/?retryWrites=true&w=majority'
+
 mongodb_uri = os.getenv("MONGODB_URI")
 mongodb_name = os.getenv("DB_NAME")  # Retrieve the database name from the environment variables
 
@@ -86,7 +85,7 @@ def signup():
         response = {"success": False, "message": "That username already exists."}
     else:
         hashed_password = bcrypt.hashpw(password, bcrypt.gensalt())
-        users.insert_one({"username": username, "password": hashed_password, "datetime": dateTime, 'gasexact': None,  'dieselexact': None, 'calories': None, 'meat': None, 'dairy': None, 'fruit_veggies': None, 'grain': None})
+        users.insert_one({"username": username, "password": hashed_password, "datetime": dateTime, 'gasexact': None,  'dieselexact': None, 'calories': None, 'meat': None, 'dairy': None, 'fruits_veggies': None, 'grain': None})
         response = {"success": True, "message": "User created successfully."}
 
     return jsonify(response)
@@ -157,11 +156,12 @@ def foodcalc():
     return jsonify(response)
 
 
+
 @app.route('/data')
 def send_ovr():
     users = db.users
-    avgG = 18
-    avgD = 14.75875
+    avgG = 9.33
+    avgD = 7.97835
     avgF = 4.3 * 3112
     baseline = calculations.gallOfDies(avgD) + calculations.gallOfGas(avgG) + avgF  # 323591.67499999993 starts at 33 percent
     ovr = {}
@@ -203,11 +203,11 @@ def send_ovr():
         
         print(numbe > baseline)
         if numbe > baseline: 
-            perc += (.01*(numbe-baseline)) 
+            perc -= abs((.0008*(numbe-baseline)))
         elif numbe < baseline: 
-            perc -= (.01 *((numbe-baseline)))
+            perc += abs((.0008 *((numbe-baseline))))
         else: 
-            perc = baseline
+            perc = perc
 
 
         if perc < 0: 
@@ -273,54 +273,41 @@ def send_ind():
             
         print(numbe > baseline)
         if numbe > baseline: 
-            perc += (.01*(numbe-baseline)) 
+            perc -= abs((.0008*(numbe-baseline)))
         elif numbe < baseline: 
-            perc -= (.01 *((numbe-baseline)))
+            perc += abs((.0008 *((numbe-baseline))))
         else: 
-            perc = baseline
+            perc = perc
 
 
         if perc < 0: 
             perc = 0 
         if perc > 100: 
             perc = 100
+
+        print(perc)
+        print(numbe)
+        print(perc)
     ovr = {'barme': round(perc), 'emissme': numbe}
-    print(perc)
     return jsonify(ovr)
     
 
+@app.route('/users/advice', methods = ['GET', 'POST'])
+def give_advice_basic():
+    suggest = textdochandle.suggs('advice.txt')
+
+
+    sugg = {'itis' : suggest.get_phrase()}
+    print(sugg)
+    return jsonify(sugg)
+
+
+
         
         
 
 
-'''
-@app.before_request
-def dec_calc_ovr_bef():
-    pass
 
-@app.before_request
-def dec_calc_ind_bef(): 
-    pass
-
-
-@app.after_request
-def dec_calc_ovr_bef():
-    pass
-
-@app.after_request
-def dec_calc_ind_bef(): 
-    pass
-
-'''
-
-# get the username of the current user 
-'''
-@app.route('/users/getuname', methods = ['GET', 'POST']) 
-def getUname():
-    username = request.data.decode('utf-8')
-    print(username)
-    return username
-'''
 
 if __name__ == '__main__':
     app.run(debug=True)
