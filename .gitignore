@@ -1,3 +1,3 @@
 # Ignore .env files
-back/bob.env
-back/database.env
+server/bob.env
+server/database.env
