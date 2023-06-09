@@ -1,5 +1,6 @@
 # Ignore .env files
-back/.env
+back/bob.env
+back/database.env
 
 # Ignore node_modules folder
 front/myapp/node_modules/
