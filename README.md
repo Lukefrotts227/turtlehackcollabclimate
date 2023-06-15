@@ -21,4 +21,5 @@
 
 # More info
 - Here is the link to the devpost of the project. 
+- A video and pictures of how the project works is on devpost 
 - https://devpost.com/software/carbon-footprint-collab
